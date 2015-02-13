@@ -22,6 +22,7 @@ add_definitions(
 -DSTATIC_NLEQ
 )
 
+if(WIN32)
 target_link_libraries (${target} 
 roadrunner
 telplugins
@@ -35,6 +36,21 @@ blas
 lapack
 libf2c
 )
+else()
+target_link_libraries (${target}
+roadrunner
+telplugins
+libsbml-static
+# poco_foundation-static
+rr-libstruct-static
+sundials_cvode
+sundials_nvecserial
+nleq-static
+blas
+lapack
+libf2c
+)
+endif()
 
 if(${MSVC})
 

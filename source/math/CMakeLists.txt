@@ -38,6 +38,7 @@ else()
     set(staticLibExt "")
 endif(UNIX)
 
+if(WIN32)
 target_link_libraries (${target}
     roadrunner
     telplugins_common
@@ -49,6 +50,19 @@ target_link_libraries (${target}
     rr-libstruct-static
     poco_foundation-static
     )
+else()
+target_link_libraries (${target}
+    roadrunner
+    telplugins_common
+    sundials_cvode
+    sundials_nvecserial
+    blas
+    lapack
+    nleq-static
+    rr-libstruct-static
+#     poco_foundation-static
+    )
+endif()
 
 if(UNIX)
     target_link_libraries(${target} xml2)
@@ -101,6 +115,7 @@ set_property(TARGET ${target}-static
     )
 
 #libraries to link with static lib
+if(WIN32)
 target_link_libraries (${target}-static
     sundials_cvode
     sundials_nvecserial
@@ -110,6 +125,16 @@ target_link_libraries (${target}-static
     rr-libstruct-static
     poco_foundation-static
     )
+else()
+target_link_libraries (${target}-static
+    sundials_cvode
+    sundials_nvecserial
+    blas
+    lapack
+    nleq-static
+    rr-libstruct-static
+    )
+endif()
 
 if(WIN32)
     target_link_libraries (${target}-static

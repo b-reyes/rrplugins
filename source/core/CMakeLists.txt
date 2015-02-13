@@ -39,6 +39,7 @@ else()
     set(staticLibExt "")
 endif(UNIX)
 
+if(WIN32)
 target_link_libraries (${target}
 roadrunner
 telplugins_common
@@ -50,6 +51,19 @@ nleq-static
 rr-libstruct-static
 poco_foundation-static
 )
+else()
+target_link_libraries (${target}
+roadrunner
+telplugins_common
+sundials_cvode
+sundials_nvecserial
+blas
+lapack
+nleq-static
+rr-libstruct-static
+PocoFoundation
+)
+endif()
 
 if(UNIX)
     target_link_libraries(${target} xml2)
@@ -109,7 +123,8 @@ target_link_libraries (${target}-static
     lapack
     nleq-static
     rr-libstruct-static
-    poco_foundation-static
+#     poco_foundation-static.a
+    PocoFoundation
     )
 
 if(WIN32)

@@ -27,7 +27,7 @@ telplugins
 lapack
 blas
 f2c
-poco_foundation-static.a
+# poco_foundation-static.a
 )
 endif()
 

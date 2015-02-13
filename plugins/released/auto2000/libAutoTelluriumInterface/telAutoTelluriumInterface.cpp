@@ -295,7 +295,7 @@ void autoCallConv AutoTellurimInterface::ModelFunctionCallback(const double* oVa
     theModel->setFloatingSpeciesConcentrations(numFloatingSpecies, NULL, tempConc);
     delete [] tempConc;
 
-    theModel->convertToAmounts();
+//     theModel->convertToAmounts();
 
     double  time             = theModel->getTime();
     int     stateVecSize    = theModel->getNumFloatingSpecies() + theModel->getNumRateRules();

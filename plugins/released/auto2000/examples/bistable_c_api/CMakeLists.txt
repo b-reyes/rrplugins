@@ -20,6 +20,7 @@ add_definitions(
 -DWIN32
 )
 
+if(WIN32)
 target_link_libraries (${target} 
 roadrunner-static
 telplugins_api-static
@@ -34,6 +35,22 @@ blas
 lapack
 libf2c
 )
+else()
+target_link_libraries (${target}
+roadrunner-static
+telplugins_api-static
+libxml2
+libsbml-static
+# poco_foundation-static
+rr-libstruct-static
+sundials_cvode
+sundials_nvecserial
+nleq-static
+blas
+lapack
+libf2c
+)
+endif()
 endif()
 
 install (TARGETS ${target} 		
