@@ -38,7 +38,7 @@
 #ifdef MACOSX
     #include <malloc/malloc.h>
 #else
-    #include <malloc.h>
+    #include <stdlib.h>
 #endif
 
 

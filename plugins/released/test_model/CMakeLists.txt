@@ -32,6 +32,8 @@ else() #UNIX
         )
 
     target_link_libraries ( ${target}
+        roadrunner
+        telplugins_core
         )
 endif()
 

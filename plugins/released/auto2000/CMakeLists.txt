@@ -53,6 +53,7 @@ message(${CMAKE_MODULE_LINKER_FLAGS} )
 endif()
 
 
+endif()
 target_link_libraries (${target}
 roadrunner
 telplugins_core
@@ -60,7 +61,6 @@ telplugins_common
 libTelluriumAutoInterface-static
 libAuto-static
 )
-endif()
 
 install (TARGETS ${target}
 DESTINATION plugins

@@ -47,7 +47,7 @@ target_link_libraries (${target}
     lapack
     nleq-static
     rr-libstruct-static
-    poco_foundation-static
+    PocoFoundation
     )
 
 if(UNIX)
@@ -108,7 +108,7 @@ target_link_libraries (${target}-static
     lapack
     nleq-static
     rr-libstruct-static
-    poco_foundation-static
+    PocoFoundation
     )
 
 if(WIN32)
